@@ -7,6 +7,8 @@ public class DrunkPlayerMovement : MonoBehaviour
     [Range(0, 100)]
     [SerializeField] private float _drunkMeter = 25;
 
+    public float DrunkMeter { get { return _drunkMeter; } }
+
     [Range(0, 100)]
     [SerializeField] private float _painMeter = 25;
 

@@ -6,8 +6,8 @@ using UnityEngine.Rendering.PostProcessing;
 [PostProcess(typeof(DrunkFXRenderer), PostProcessEvent.AfterStack, "Custom/DrunkFX")]
 public sealed class DrunkFX : PostProcessEffectSettings
 {
-    [Range(0f, 1f), Tooltip("Distortion Amplitude")]
-    public FloatParameter amplitude = new FloatParameter { value = 0.5f };
+    [Range(0f, 0.05f), Tooltip("Distortion Amplitude")]
+    public FloatParameter amplitude = new FloatParameter { value = 0.01f };
 
     [Range(0f, 1f), Tooltip("Distortion Frequency")]
     public FloatParameter frequency = new FloatParameter { value = 0.5f };
