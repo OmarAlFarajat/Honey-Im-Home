@@ -55,7 +55,6 @@ public class DrunkPlayerMovement : MonoBehaviour
     private void applyGuidingForce()
     {
         float guidingForceDirection = Input.GetAxisRaw("Horizontal");
-
         _guidingForce = (1 / _drunkMeter) * Time.deltaTime * -guidingForceDirection * _guidingForceMultiplier;
         _drunkForce -= _guidingForce;
         _rb2d.AddForce(new Vector2(_drunkForce, 0));
@@ -77,5 +76,15 @@ public class DrunkPlayerMovement : MonoBehaviour
     private float getRandomDurationForTimer()
     {
         return Random.Range(1, 6);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("obstacle"))
+        {
+            Destroy(other.gameObject);
+            FindObjectOfType<AudioManager>().Play("hurt");
+            Debug.Log("I got hit!");
+        }
     }
 }
