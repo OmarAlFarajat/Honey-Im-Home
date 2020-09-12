@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 9047280980924093498}
   - component: {fileID: 9047280980924093497}
   - component: {fileID: 8630929345324150535}
-  - component: {fileID: 1963075380544826271}
   - component: {fileID: 6843451970281552730}
+  - component: {fileID: -1210539382191734135}
+  - component: {fileID: 938432312163529978}
   m_Layer: 0
   m_Name: Banana
   m_TagString: obstacle
@@ -97,19 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3839a371ce89ab94da9a5c6a6e6c3ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1963075380544826271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9047280980924093496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3bf13ad60a42e46b9433e21ad450a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDir: {x: 0, y: 0}
 --- !u!61 &6843451970281552730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +124,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.28}
   m_EdgeRadius: 0
+--- !u!114 &-1210539382191734135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047280980924093496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2963087029c993ab2847be4ecfaf9e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  painDamage: 0
+  drunkDamage: 0
+--- !u!114 &938432312163529978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047280980924093496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3bf13ad60a42e46b9433e21ad450a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDir: {x: 0, y: 0}

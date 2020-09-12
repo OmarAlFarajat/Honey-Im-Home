@@ -235,6 +235,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6822386508818979801, guid: ba44ea2def37a454b8c714e4f45cbf8f, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822386508818979801, guid: ba44ea2def37a454b8c714e4f45cbf8f, type: 3}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 5087492948087484092, guid: 51277d950df22c1479f87536e5ce7d9c, type: 3}
+    - target: {fileID: 6822386508818979801, guid: ba44ea2def37a454b8c714e4f45cbf8f, type: 3}
+      propertyPath: obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 9047280980924093496, guid: f512390b2cc82d048a0fc9b3da648f21, type: 3}
+    - target: {fileID: 6822386508818979801, guid: ba44ea2def37a454b8c714e4f45cbf8f, type: 3}
+      propertyPath: obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 4856395636299264892, guid: 00f57cd19e0e9d047973ca6049c9f6c3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba44ea2def37a454b8c714e4f45cbf8f, type: 3}
 --- !u!1001 &2101307125
