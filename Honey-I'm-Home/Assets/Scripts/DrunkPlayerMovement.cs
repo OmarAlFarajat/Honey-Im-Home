@@ -42,8 +42,6 @@ public class DrunkPlayerMovement : MonoBehaviour
     {
         applyDrunkForce();
         applyGuidingForce();
-        Debug.Log("DRUNK FORCE " + _drunkForce);
-        Debug.Log("GUIDING FORCE " + _guidingForce);
     }
 
     private void applyDrunkForce()
