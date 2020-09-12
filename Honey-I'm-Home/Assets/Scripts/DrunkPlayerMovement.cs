@@ -7,6 +7,8 @@ public class DrunkPlayerMovement : MonoBehaviour
     [Range(0, 100)]
     [SerializeField] private float _drunkMeter = 25;
 
+    public float DrunkMeter { get { return _drunkMeter; } }
+
     [Range(0, 100)]
     [SerializeField] private float _painMeter = 25;
 
@@ -42,8 +44,6 @@ public class DrunkPlayerMovement : MonoBehaviour
     {
         applyDrunkForce();
         applyGuidingForce();
-        Debug.Log("DRUNK FORCE " + _drunkForce);
-        Debug.Log("GUIDING FORCE " + _guidingForce);
     }
 
     private void applyDrunkForce()
@@ -55,7 +55,6 @@ public class DrunkPlayerMovement : MonoBehaviour
     private void applyGuidingForce()
     {
         float guidingForceDirection = Input.GetAxisRaw("Horizontal");
-        Debug.Log("GUIDING FORCE DIRECTION " + guidingForceDirection);
 
         _guidingForce = (1 / _drunkMeter) * Time.deltaTime * -guidingForceDirection * _guidingForceMultiplier;
         _drunkForce -= _guidingForce;
