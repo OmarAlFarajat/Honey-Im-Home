@@ -53,7 +53,6 @@ public class DrunkPlayerMovement : MonoBehaviour
     private void applyGuidingForce()
     {
         float guidingForceDirection = Input.GetAxisRaw("Horizontal");
-        Debug.Log("GUIDING FORCE DIRECTION " + guidingForceDirection);
 
         _guidingForce = (1 / _drunkMeter) * Time.deltaTime * -guidingForceDirection * _guidingForceMultiplier;
         _drunkForce -= _guidingForce;
