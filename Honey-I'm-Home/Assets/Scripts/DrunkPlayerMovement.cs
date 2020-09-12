@@ -10,11 +10,11 @@ public class DrunkPlayerMovement : MonoBehaviour
     [Range(0, 100)]
     [SerializeField] private float _painMeter = 25;
 
-    [Range(1, 10000)]
+    [Range(1, 100)]
     [SerializeField] private float _drunkForceDivider = 7;
 
     [Range(1, 10000)]
-    [SerializeField] private float _guidingForceMultiplier = 4000;
+    [SerializeField] private float _guidingForceMultiplier = 5000;
 
     private Rigidbody2D _rb2d;
 
