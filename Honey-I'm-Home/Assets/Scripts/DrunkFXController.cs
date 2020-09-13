@@ -54,11 +54,13 @@ public class DrunkFXController : MonoBehaviour
         // Size (Only dealing with X and Y values) -> (Min = 0, Max = 10)
         _drunkFX.size.value.x = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
         _drunkFX.size.value.y = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
+        Debug.Log("SIZE" + _drunkFX.size.value);
 
 
         // Speed (Only dealing with X and Y values) -> (Min = 0, Max = 10)
         _drunkFX.speed.value.x = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
         _drunkFX.speed.value.y = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
+        Debug.Log("SPEED" + _drunkFX.speed.value);
 
         /*---Bloom---*/
 

@@ -19,15 +19,20 @@ public class MeterController : MonoBehaviour
             StartCoroutine(Shake(0.5f, 0.025f));
 
             playerMeters.DrunkMeter += other.gameObject.GetComponent<ObstacleStats>().drunkDamage;
+            playerMeters.PainMeter += other.gameObject.GetComponent<ObstacleStats>().painDamage;
+            playerMeters.DrunkMeter -= other.gameObject.GetComponent<ObstacleStats>().painDamage;
 
             if (playerMeters.DrunkMeter >= 100)
                 playerMeters.DrunkMeter = 100;
 
-            playerMeters.PainMeter += other.gameObject.GetComponent<ObstacleStats>().painDamage;
-            playerMeters.DrunkMeter -= other.gameObject.GetComponent<ObstacleStats>().painDamage;
+            if (playerMeters.DrunkMeter <= 1)
+                playerMeters.DrunkMeter = 1;
 
             if (playerMeters.PainMeter >= 100)
                 playerMeters.PainMeter = 100;
+
+            if (playerMeters.PainMeter <= 1)
+                playerMeters.PainMeter = 1;
         }
     }
 
