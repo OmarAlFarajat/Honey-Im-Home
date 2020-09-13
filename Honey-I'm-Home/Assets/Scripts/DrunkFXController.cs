@@ -29,7 +29,7 @@ public class DrunkFXController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         adjustFXBasedOnDrunkMeter();
     }
@@ -45,8 +45,8 @@ public class DrunkFXController : MonoBehaviour
 
         /*----Drunk FX----*/
 
-        // Amplitude (Min = 0, Max = 0.05)
-        _drunkFX.amplitude.value = 0.01f;
+        // Amplitude (Min = 0, Max = 0.005)
+        _drunkFX.amplitude.value = 0.005f;
 
         // Frequency (Min = 0, Max = 1)
         _drunkFX.frequency.value = 0.5f;
@@ -54,6 +54,7 @@ public class DrunkFXController : MonoBehaviour
         // Size (Only dealing with X and Y values) -> (Min = 0, Max = 10)
         _drunkFX.size.value.x = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
         _drunkFX.size.value.y = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
+
 
         // Speed (Only dealing with X and Y values) -> (Min = 0, Max = 10)
         _drunkFX.speed.value.x = (drunkMeter / 20) + (Random.Range(0, 15) / 3);
@@ -74,7 +75,5 @@ public class DrunkFXController : MonoBehaviour
 
         if (!hasFirstLoopPassed)
             hasFirstLoopPassed = true;
-
-
     }
 }
