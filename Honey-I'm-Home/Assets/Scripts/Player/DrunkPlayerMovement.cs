@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DrunkPlayerMovement : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class DrunkPlayerMovement : MonoBehaviour
     {
         applyDrunkForce();
         applyGuidingForce();
+        Die();
     }
 
     private void applyDrunkForce()
@@ -96,7 +98,14 @@ public class DrunkPlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("hurt");
-            Debug.Log("I got hit!");
+        }
+    }
+
+    private void Die()
+    {
+        if (PainMeter >= 100f || DrunkMeter >= 100f)
+        {
+            SceneManager.LoadScene("Fail");
         }
     }
 }

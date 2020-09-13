@@ -43,8 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c178a2134f2964796814cff18b952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 0
-  interval: 1
-  obstacle0: {fileID: 3334293351116594231, guid: 51277d950df22c1479f87536e5ce7d9c, type: 3}
-  obstacle1: {fileID: 1963075380544826271, guid: f512390b2cc82d048a0fc9b3da648f21, type: 3}
-  obstacle2: {fileID: 1395102127899776473, guid: 00f57cd19e0e9d047973ca6049c9f6c3, type: 3}
+  low_interval: 1
+  high_interval: 2.551
+  max_objects: 5
+  obstacles:
+  - {fileID: 5087492948087484092, guid: 51277d950df22c1479f87536e5ce7d9c, type: 3}
+  - {fileID: 9047280980924093496, guid: f512390b2cc82d048a0fc9b3da648f21, type: 3}
+  - {fileID: 4856395636299264892, guid: 00f57cd19e0e9d047973ca6049c9f6c3, type: 3}
+  - {fileID: 3153206242843921184, guid: 03b0cd88c96c20845b1fb95e72aed999, type: 3}

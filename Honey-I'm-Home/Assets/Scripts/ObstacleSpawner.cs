@@ -5,8 +5,17 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
 
-    public float period = 0.0f;
-    public float interval = 1.0f;
+    private float period = 0.0f;
+    private float interval = 1.0f;
+
+    [Range(0.5f, 1.5f)]
+    public float low_interval = 0.75f;
+
+    [Range(1.6f, 3.0f)]
+    public float high_interval = 1.5f;
+
+    [Range(2, 9)]
+    public int max_objects = 9; 
 
     public List<GameObject> obstacles = new List<GameObject>();
 
@@ -38,7 +47,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnRandom()
     {
-        int numObjects = Random.Range(1, 9);
+        int numObjects = Random.Range(1, max_objects);
         for (int i = 0; i < numObjects; i++)
         {
             int position = Random.Range(0, 9);
