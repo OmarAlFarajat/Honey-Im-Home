@@ -28,6 +28,9 @@ public class DrunkPlayerMovement : MonoBehaviour
     private float _drunkForce = 0;
     private float _guidingForce = 0;
 
+    public float nextActionTime = 0.0f;
+    private const float PERIOD = 1f;
+
     private void Start()
     {
         // -1 -> Left, 1 -> Right
@@ -45,6 +48,7 @@ public class DrunkPlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        playWalkingSound();
         applyDrunkForce();
         applyGuidingForce();
         Die();
@@ -99,6 +103,11 @@ public class DrunkPlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("hurt");
         }
+        if (other.gameObject.CompareTag("beer"))
+        {
+            Destroy(other.gameObject);
+            FindObjectOfType<AudioManager>().Play("drink");
+        }
     }
 
     private void Die()
@@ -110,7 +119,26 @@ public class DrunkPlayerMovement : MonoBehaviour
             GameObject.Find("House").GetComponent<HouseController>()._dist_accrued = - 6.63f;
             GameObject.Find("House").GetComponent<HouseController>()._scale_accrued = 0.15f;
             GameObject.Find("House").GetComponent<HouseController>().nextActionTime = 0.0f;
+            FindObjectOfType<AudioManager>().Stop("bgm");
             SceneManager.LoadScene("Fail");
         }
     }
+
+    private void playWalkingSound()
+    {
+        if (Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
+        {
+
+            if (Time.timeSinceLevelLoad > nextActionTime)
+            {
+                nextActionTime += PERIOD;
+                FindObjectOfType<AudioManager>().Play("walk");
+            }
+        }
+        else
+            FindObjectOfType<AudioManager>().Stop("walk");
+
+    }
+
+
 }
