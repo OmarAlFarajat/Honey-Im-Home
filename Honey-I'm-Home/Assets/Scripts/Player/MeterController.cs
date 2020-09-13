@@ -19,6 +19,8 @@ public class MeterController : MonoBehaviour
             StartCoroutine(Shake(0.5f, 0.025f));
 
             playerMeters.DrunkMeter += other.gameObject.GetComponent<ObstacleStats>().drunkDamage;
+            playerMeters.PainMeter -= other.gameObject.GetComponent<ObstacleStats>().drunkDamage;
+
             playerMeters.PainMeter += other.gameObject.GetComponent<ObstacleStats>().painDamage;
             playerMeters.DrunkMeter -= other.gameObject.GetComponent<ObstacleStats>().painDamage;
 
