@@ -43,6 +43,12 @@ public class AudioManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         setPitchEffects();
+
+        // THIS IS A LAST MINUTE HACK DON'T JUDGE!!
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
     }
 
     private void setPitchEffects()

@@ -4,40 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SimpleStart : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        switch (SceneManager.GetActiveScene().name) {
-            case "Intro":
-                FindObjectOfType<AudioManager>().Play("intro");
-                break;
-            case "Fail":
-                FindObjectOfType<AudioManager>().Play("fail");
-                break;
-            case "Succeed":
-                FindObjectOfType<AudioManager>().Play("succeed");
-                break;
-        }
+        FindObjectOfType<AudioManager>().Play("intro");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void startGame()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            switch (SceneManager.GetActiveScene().name)
-            {
-                case "Intro":
-                    FindObjectOfType<AudioManager>().Stop("intro");
-                    break;
-                case "Fail":
-                    FindObjectOfType<AudioManager>().Stop("fail");
-                    break;
-                case "Succeed":
-                    FindObjectOfType<AudioManager>().Stop("succeed");
-                    break;
-            }
-            SceneManager.LoadScene("Main");
-        }
+        SceneManager.LoadScene("Intertitle");
     }
+
 }
