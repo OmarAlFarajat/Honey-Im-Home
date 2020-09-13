@@ -11,6 +11,7 @@ public class DrunkFXController : MonoBehaviour
     float drunkMeter;
     float initialDrunkMeter;
     DrunkPlayerMovement playerMovementStats;
+    bool hasFirstLoopPassed = false;
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class DrunkFXController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         adjustFXBasedOnDrunkMeter();
     }
@@ -37,15 +38,15 @@ public class DrunkFXController : MonoBehaviour
     {
         drunkMeter = playerMovementStats.DrunkMeter;
 
-        if (initialDrunkMeter == drunkMeter)
+        if (initialDrunkMeter == drunkMeter && hasFirstLoopPassed)
         {
             return;
         }
 
         /*----Drunk FX----*/
 
-        // Amplitude (Min = 0, Max = 0.05)
-        _drunkFX.amplitude.value = 0.01f;
+        // Amplitude (Min = 0, Max = 0.005)
+        _drunkFX.amplitude.value = 0.005f;
 
         // Frequency (Min = 0, Max = 1)
         _drunkFX.frequency.value = 0.5f;
@@ -71,6 +72,7 @@ public class DrunkFXController : MonoBehaviour
 
         initialDrunkMeter = drunkMeter;
 
-
+        if (!hasFirstLoopPassed)
+            hasFirstLoopPassed = true;
     }
 }

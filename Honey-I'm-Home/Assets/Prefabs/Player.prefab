@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6101545868285459089}
   - component: {fileID: 6101545868285459088}
   - component: {fileID: 6101545868285459091}
-  - component: {fileID: 789453999869021518}
   - component: {fileID: 6381910328848995752}
+  - component: {fileID: 789453999869021518}
+  - component: {fileID: 1463353640055237679}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -106,22 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &789453999869021518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6101545868285459090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1097ccd8d38ec1f1c8a463bffdab48a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _drunkMeter: 25
-  _painMeter: 25
-  _drunkForceDivider: 7
-  _guidingForceMultiplier: 5000
 --- !u!61 &6381910328848995752
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +133,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22894293, y: 0.33020902}
   m_EdgeRadius: 0
+--- !u!114 &789453999869021518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101545868285459090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1097ccd8d38ec1f1c8a463bffdab48a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drunkMeter: 70
+  _painMeter: 0
+  _drunkForceDivider: 5
+  _guidingForceMultiplier: 4000
+--- !u!114 &1463353640055237679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101545868285459090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b508a23285bc0ae6accb9b34468396d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -7,17 +7,20 @@ public class ObstacleSpawner : MonoBehaviour
 
     public float period = 0.0f;
     public float interval = 1.0f;
-    public ObstacleMove obstacle0;
-    public ObstacleMove obstacle1;
-    public ObstacleMove obstacle2;
 
-    // Start is called before the first frame update
-    void Start()
+    public List<GameObject> obstacles = new List<GameObject>();
+
+    private void Awake()
     {
-        
+        foreach (GameObject obstacle in obstacles)
+        {
+            if (obstacle.GetComponent<ObstacleMove>() == null)
+            {
+                obstacle.AddComponent<ObstacleMove>();
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetAxisRaw("Vertical") > 0)
@@ -40,28 +43,12 @@ public class ObstacleSpawner : MonoBehaviour
         {
             int position = Random.Range(0, 9);
 
-            switch (Random.Range(0, 3))
-            {
-                case 0:
-                    ObstacleMove obs0 = Instantiate(obstacle0, GameObject.Find("start" + position).transform.position, Quaternion.identity);
-                    obs0.transform.localScale = new Vector2();
-                    obs0.moveDir = GameObject.Find("end" + position).transform.position - GameObject.Find("start" + position).transform.position;
-                    obs0.moveDir.Normalize();
-                    break;
-                case 1:
-                    ObstacleMove obs1 = Instantiate(obstacle1, GameObject.Find("start" + position).transform.position, Quaternion.identity);
-                    obs1.transform.localScale = new Vector2();
-                    obs1.moveDir = GameObject.Find("end" + position).transform.position - GameObject.Find("start" + position).transform.position;
-                    obs1.moveDir.Normalize();
-                    break;
-                case 2:
-                    ObstacleMove obs2 = Instantiate(obstacle2, GameObject.Find("start" + position).transform.position, Quaternion.identity);
-                    obs2.transform.localScale = new Vector2();
-                    obs2.moveDir = GameObject.Find("end" + position).transform.position - GameObject.Find("start" + position).transform.position;
-                    obs2.moveDir.Normalize();
-                    break;
-            }
+            int obstacleIndex = Random.Range(0, obstacles.Count);
 
+            ObstacleMove obs = Instantiate(obstacles[obstacleIndex].GetComponent<ObstacleMove>(), GameObject.Find("start" + position).transform.position, Quaternion.identity);
+            obs.transform.localScale = new Vector2();
+            obs.moveDir = GameObject.Find("end" + position).transform.position - GameObject.Find("start" + position).transform.position;
+            obs.moveDir.Normalize();
         }
     }
 }

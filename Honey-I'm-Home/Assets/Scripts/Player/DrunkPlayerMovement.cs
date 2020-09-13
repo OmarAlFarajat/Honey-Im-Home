@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class DrunkPlayerMovement : MonoBehaviour
 {
-    [Range(0, 100)]
-    [SerializeField] private float _drunkMeter = 25;
+    [Range(1, 100)]
+    [SerializeField] private float _drunkMeter = 70;
 
-    public float DrunkMeter { get { return _drunkMeter; } }
+    public float DrunkMeter { get { return _drunkMeter; } set { _drunkMeter = value; } }
 
     [Range(0, 100)]
-    [SerializeField] private float _painMeter = 25;
+    [SerializeField] private float _painMeter = 0;
+
+    public float PainMeter { get { return _painMeter; } set { _painMeter = value; } }
 
     [Range(1, 100)]
-    [SerializeField] private float _drunkForceDivider = 7;
+    [SerializeField] private float _drunkForceDivider = 5;
 
     [Range(1, 10000)]
-    [SerializeField] private float _guidingForceMultiplier = 5000;
+    [SerializeField] private float _guidingForceMultiplier = 4000;
 
     private Rigidbody2D _rb2d;
 
@@ -55,6 +57,16 @@ public class DrunkPlayerMovement : MonoBehaviour
     private void applyGuidingForce()
     {
         float guidingForceDirection = Input.GetAxisRaw("Horizontal");
+
+        if (_drunkMeter <= 10)
+        {
+            _guidingForceMultiplier = 500;
+        }
+        else
+        {
+            _guidingForceMultiplier = 4000;
+        }
+
         _guidingForce = (1 / _drunkMeter) * Time.deltaTime * -guidingForceDirection * _guidingForceMultiplier;
         _drunkForce -= _guidingForce;
         _rb2d.AddForce(new Vector2(_drunkForce, 0));
