@@ -24,6 +24,7 @@ public class MeterController : MonoBehaviour
                 playerMeters.DrunkMeter = 100;
 
             playerMeters.PainMeter += other.gameObject.GetComponent<ObstacleStats>().painDamage;
+            playerMeters.DrunkMeter -= other.gameObject.GetComponent<ObstacleStats>().painDamage;
 
             if (playerMeters.PainMeter >= 100)
                 playerMeters.PainMeter = 100;

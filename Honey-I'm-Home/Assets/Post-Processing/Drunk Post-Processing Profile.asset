@@ -17,16 +17,16 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   amplitude:
-    overrideState: 0
+    overrideState: 1
     value: 0.005
   frequency:
-    overrideState: 0
+    overrideState: 1
     value: 0.5
   speed:
-    overrideState: 0
+    overrideState: 1
     value: {x: 1, y: 1, z: 0, w: 0}
   size:
-    overrideState: 0
+    overrideState: 1
     value: {x: 1, y: 1, z: 0, w: 0}
 --- !u!114 &-5145071209343426845
 MonoBehaviour:
