@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class DrunkPlayerMovement : MonoBehaviour
 {
-    [Range(0, 100)]
-    [SerializeField] private float _drunkMeter = 25;
+    [Range(1, 100)]
+    [SerializeField] private float _drunkMeter = 70;
 
-    public float DrunkMeter { get { return _drunkMeter; } }
+    public float DrunkMeter { get { return _drunkMeter; } set { _drunkMeter = value; } }
 
     [Range(0, 100)]
-    [SerializeField] private float _painMeter = 25;
+    [SerializeField] private float _painMeter = 0;
+
+    public float PainMeter { get { return _painMeter; } set { _painMeter = value; } }
 
     [Range(1, 100)]
     [SerializeField] private float _drunkForceDivider = 7;

@@ -11,6 +11,7 @@ public class DrunkFXController : MonoBehaviour
     float drunkMeter;
     float initialDrunkMeter;
     DrunkPlayerMovement playerMovementStats;
+    bool hasFirstLoopPassed = false;
 
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class DrunkFXController : MonoBehaviour
     {
         drunkMeter = playerMovementStats.DrunkMeter;
 
-        if (initialDrunkMeter == drunkMeter)
+        if (initialDrunkMeter == drunkMeter && hasFirstLoopPassed)
         {
             return;
         }
@@ -70,6 +71,9 @@ public class DrunkFXController : MonoBehaviour
 
 
         initialDrunkMeter = drunkMeter;
+
+        if (!hasFirstLoopPassed)
+            hasFirstLoopPassed = true;
 
 
     }
