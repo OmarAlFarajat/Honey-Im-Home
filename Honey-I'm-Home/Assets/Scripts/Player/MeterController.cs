@@ -15,7 +15,7 @@ public class MeterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag.Equals("obstacle"))
+        if (other.gameObject.tag.Equals("obstacle") || other.gameObject.tag.Equals("beer"))
         {
 
             StartCoroutine(Shake(0.5f, 0.025f));

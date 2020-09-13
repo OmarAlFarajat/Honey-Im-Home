@@ -45,9 +45,11 @@ public class HouseController : MonoBehaviour
                     _dist_accrued = -6.63f;
                     _scale_accrued = 0.15f;
                     nextActionTime = 0.0f;
+                    FindObjectOfType<AudioManager>().Stop("bgm");
                     SceneManager.LoadScene("Succeed");
                 }
             }
         }
     }
+
 }

@@ -10,7 +10,7 @@ public class RoadAnimate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("bgm");
     }
 
     // Update is called once per frame
