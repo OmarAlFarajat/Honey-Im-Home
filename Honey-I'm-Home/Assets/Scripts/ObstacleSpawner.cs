@@ -8,6 +8,9 @@ public class ObstacleSpawner : MonoBehaviour
     private float period = 0.0f;
     private float interval = 1.0f;
 
+    private float nextActionTime = 0.0f;
+    private const float PERIOD = 0.75f;
+
     [Range(0.5f, 1.5f)]
     public float low_interval = 0.75f;
 
@@ -34,13 +37,11 @@ public class ObstacleSpawner : MonoBehaviour
     {
         if (Input.GetAxisRaw("Vertical") > 0)
         {
-            if (period > interval)
+            if (Time.timeSinceLevelLoad > nextActionTime)
             {
+                nextActionTime += PERIOD + Random.Range(0.25f, 0.5f);
                 SpawnRandom();
-                period = 0;
-                interval = Random.Range(0.75f, 1.5f);
             }
-            period += UnityEngine.Time.deltaTime;
         }
 
     }
