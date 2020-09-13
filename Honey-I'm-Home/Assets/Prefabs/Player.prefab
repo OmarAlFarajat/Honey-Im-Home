@@ -148,7 +148,7 @@ MonoBehaviour:
   _drunkMeter: 70
   _painMeter: 0
   _drunkForceDivider: 5
-  _guidingForceMultiplier: 3000
+  _guidingForceMultiplier: 4000
 --- !u!114 &1463353640055237679
 MonoBehaviour:
   m_ObjectHideFlags: 0
