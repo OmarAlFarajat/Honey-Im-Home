@@ -5,10 +5,12 @@ using UnityEngine;
 public class MeterController : MonoBehaviour
 {
     DrunkPlayerMovement playerMeters;
+    PainOverlayController painOverlay;
 
     private void Awake()
     {
         playerMeters = GetComponent<DrunkPlayerMovement>();
+        painOverlay = GameObject.Find("PainOverlay").GetComponent<PainOverlayController>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -35,6 +37,8 @@ public class MeterController : MonoBehaviour
 
             if (playerMeters.PainMeter <= 1)
                 playerMeters.PainMeter = 1;
+
+            painOverlay.adjustOpacity(playerMeters.PainMeter);
         }
     }
 
