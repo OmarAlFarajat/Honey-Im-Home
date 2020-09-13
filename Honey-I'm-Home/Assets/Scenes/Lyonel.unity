@@ -361,6 +361,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2702450481261421795, guid: f70aed0a60e68fd87a1ce4af98b8f56e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702450481261421804, guid: f70aed0a60e68fd87a1ce4af98b8f56e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2702450481261421806, guid: f70aed0a60e68fd87a1ce4af98b8f56e, type: 3}
       propertyPath: m_Name
       value: Drunk Camera
