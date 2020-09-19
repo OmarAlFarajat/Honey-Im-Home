@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-
+    public string sceneName;
 
     // Start is called before the first frame update
     void Awake()
     {
-
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -24,31 +22,20 @@ public class AudioManager : MonoBehaviour
             s.source.bypassEffects = s.bypassEffects;
         }
 
-        Play(SceneManager.GetActiveScene().name);
-
         int audioManagers = FindObjectsOfType<AudioManager>().Length;
+        
         if (audioManagers != 1)
-        {
             Destroy(gameObject);
-        }
-        // if more then one music player is in the scene
-        //destroy ourselves
         else
-        {
             DontDestroyOnLoad(gameObject);
-        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
     }
 
     private void Update()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
         setPitchEffects();
-
-        // THIS IS A LAST MINUTE HACK DON'T JUDGE!!
-        if (Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
-        }
     }
 
     private void setPitchEffects()
@@ -62,17 +49,20 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (!SceneManager.GetActiveScene().name.Equals("Intertitle"))
+        {
+            sceneName = SceneManager.GetActiveScene().name;
 
+            if (sceneName.Equals("Main"))
+                sceneName += UnityEngine.Random.Range(0, 5);
 
-
-        Play(SceneManager.GetActiveScene().name);
-
+            Play(sceneName);
+        }
     }
 
     public void StopCurrent()
     {
-        Stop(SceneManager.GetActiveScene().name);
-
+        Stop(sceneName);
     }
 
     public void Play(string name)
@@ -85,7 +75,8 @@ public class AudioManager : MonoBehaviour
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Stop();
+        if (s != null)
+            s.source.Stop();
     }
 
     public void Pitch(string name, float pitch)

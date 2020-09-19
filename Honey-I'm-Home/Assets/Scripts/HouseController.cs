@@ -28,26 +28,23 @@ public class HouseController : MonoBehaviour
 
     void scaleHouseOverTime()
     {
-        if (Input.GetAxisRaw("Vertical") > 0)
+        if (Input.GetAxisRaw("Vertical") > 0 && Time.timeSinceLevelLoad > nextActionTime)
         {
-            if (Time.timeSinceLevelLoad > nextActionTime)
-            {
-                nextActionTime += PERIOD;
-                _scale_accrued += SCALE_SEG;
-                _dist_accrued += DIST_SEG;
-                transform.position = new Vector2(0f, _dist_accrued);
-                transform.localScale = new Vector2(Mathf.Clamp(_scale_accrued, 0f, 1.01f), Mathf.Clamp(_scale_accrued, 0f, 1.01f));
+            nextActionTime += PERIOD;
+            _scale_accrued += SCALE_SEG;
+            _dist_accrued += DIST_SEG;
+            transform.position = new Vector2(0f, _dist_accrued);
+            transform.localScale = new Vector2(Mathf.Clamp(_scale_accrued, 0f, 1.01f), Mathf.Clamp(_scale_accrued, 0f, 1.01f));
 
-                if (_dist_accrued >= -1.78f)
-                {
-                    transform.position = new Vector2(0, -6.63f);
-                    transform.localScale = new Vector2(0.15f, 0.15f);
-                    _dist_accrued = -6.63f;
-                    _scale_accrued = 0.15f;
-                    nextActionTime = 0.0f;
-                    FindObjectOfType<AudioManager>().Stop("bgm");
-                    SceneManager.LoadScene("Succeed");
-                }
+            if (_dist_accrued >= -1.78f)
+            {
+                transform.position = new Vector2(0, -6.63f);
+                transform.localScale = new Vector2(0.15f, 0.15f);
+                _dist_accrued = -6.63f;
+                _scale_accrued = 0.15f;
+                nextActionTime = 0.0f;
+                FindObjectOfType<AudioManager>().StopCurrent();
+                SceneManager.LoadScene("Succeed");
             }
         }
     }

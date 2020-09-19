@@ -31,6 +31,12 @@ public class DrunkPlayerMovement : MonoBehaviour
     public float nextActionTime = 0.0f;
     private const float PERIOD = 1f;
 
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void Start()
     {
         // -1 -> Left, 1 -> Right
@@ -119,7 +125,8 @@ public class DrunkPlayerMovement : MonoBehaviour
             GameObject.Find("House").GetComponent<HouseController>()._dist_accrued = - 6.63f;
             GameObject.Find("House").GetComponent<HouseController>()._scale_accrued = 0.15f;
             GameObject.Find("House").GetComponent<HouseController>().nextActionTime = 0.0f;
-            FindObjectOfType<AudioManager>().Stop("bgm");
+            audioManager.StopCurrent();
+            audioManager.Stop("walk");
             SceneManager.LoadScene("Fail");
         }
     }
@@ -132,11 +139,11 @@ public class DrunkPlayerMovement : MonoBehaviour
             if (Time.timeSinceLevelLoad > nextActionTime)
             {
                 nextActionTime += PERIOD;
-                FindObjectOfType<AudioManager>().Play("walk");
+                audioManager.Play("walk");
             }
         }
         else
-            FindObjectOfType<AudioManager>().Stop("walk");
+            audioManager.Stop("walk");
 
     }
 

@@ -13,7 +13,7 @@ public class GameLevelLoader : MonoBehaviour
     IEnumerator loadGame()
     {
         yield return new WaitForSeconds(18);
-        FindObjectOfType<AudioManager>().Stop("intro");
+        FindObjectOfType<AudioManager>().StopCurrent();
         SceneManager.LoadScene("Main");
     }
 }
