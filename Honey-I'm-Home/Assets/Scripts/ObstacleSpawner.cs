@@ -32,9 +32,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical") > 0 && Time.time > nextActionTime)
+        if (Input.GetAxisRaw("Vertical") > 0 && Time.timeSinceLevelLoad > nextActionTime)
         {
-            nextActionTime = Time.time + period + Random.Range(low_interval, high_interval);
+            nextActionTime = Time.timeSinceLevelLoad + period + Random.Range(low_interval, high_interval);
             SpawnRandom();
         }
 

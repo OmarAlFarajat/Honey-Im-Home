@@ -120,11 +120,6 @@ public class DrunkPlayerMovement : MonoBehaviour
     {
         if (PainMeter >= 100f || DrunkMeter >= 100f)
         {
-            GameObject.Find("House").GetComponent<HouseController>().transform.position = new Vector2(0, -6.63f);
-            GameObject.Find("House").GetComponent<HouseController>().transform.localScale = new Vector2(0.15f, 0.15f);
-            GameObject.Find("House").GetComponent<HouseController>()._dist_accrued = - 6.63f;
-            GameObject.Find("House").GetComponent<HouseController>()._scale_accrued = 0.15f;
-            GameObject.Find("House").GetComponent<HouseController>().nextActionTime = 0.0f;
             audioManager.StopCurrent();
             audioManager.Stop("walk");
             SceneManager.LoadScene("Fail");
