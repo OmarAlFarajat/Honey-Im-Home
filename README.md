@@ -1,9 +1,9 @@
 # CoCo Jam 2020 (48-Hour Game Jam)
 
 <div class="ui medium rounded images">
-  <img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "540" width="960" >
-  <img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "540" width="960" >
-  <img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "540" width="960" >
+  <img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "540" width="960" />
+  <img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "540" width="960" />
+  <img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "540" width="960" />
 </div>
 
 ## Introduction
