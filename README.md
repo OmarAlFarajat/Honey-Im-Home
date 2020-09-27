@@ -1,6 +1,6 @@
 # CoCo Jam 2020 (48-Hour Game Jam)
 
-<img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "270" width="480" /> <img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "270" width="480" /> <img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "270" width="480" />
+<img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "135" width="240" /> <img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "135" width="240" /> <img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "135" width="240" />
 
 **Download and Play (Windows, Linux, Mac):** <a href="https://gotl.itch.io/honey-im-home">gotl.itch.io/honey-im-home</a>  
 
