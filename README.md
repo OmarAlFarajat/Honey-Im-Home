@@ -1,8 +1,6 @@
 # CoCo Jam 2020 (48-Hour Game Jam)
 
-<img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "270" width="480" />
-<img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "270" width="480" />
-<img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "270" width="480" />
+<img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "270" width="480" /> <img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "270" width="480" /> <img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "270" width="480" />
 
 ## Introduction
 Developed by our team "GoreNest" and submitted for the 48-hour <a href="https://itch.io/jam/coco-jam/entries">CoCo Jam</a> held by Concordia Game Dev and ETS Conjure. The theme of the game jam was "No Pain, No Gain". 
