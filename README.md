@@ -1,24 +1,13 @@
 # CoCo Jam 2020 (48-Hour Game Jam)
 
+<div class="ui medium rounded images">
+  <img class="ui image" src="https://omaralfarajat.github.io/images/honey-home/drunk.png">
+  <img class="ui image" src="https://omaralfarajat.github.io/images/honey-home/inpain.png">
+  <img class="ui image" src="https://omaralfarajat.github.io/images/honey-home/failed.png">
+</div>
+
 ## Introduction
 Developed by our team "GoreNest" and submitted for the 48-hour <a href="https://itch.io/jam/coco-jam/entries">CoCo Jam</a> held by Concordia Game Dev and ETS Conjure. The theme of the game jam was "No Pain, No Gain". 
-
-## Credits
-Programmers: <a href="https://github.com/OmarAlFarajat">Omar Al-Farajat</a> and <a href="https://github.com/OmarAlFarajat">Lyonel Zamora</a>.
-
-Artists: <a href="https://github.com/Tjsreel">Tj'sReel</a> and <a href="https://github.com/GOTLTL">John Tran</a>.
-
-Animator: <a href="https://github.com/Tjsreel">Tj'sReel</a>.
-
-Sound and Music: <a href="https://github.com/GOTLTL">John Tran</a>.
-
-### Contributions 
-<a href="https://github.com/OmarAlFarajat">Omar Al-Farajat</a>
-* A "treadmill" effect to make the road and environment move under the player sprite to give the impression of moving forward in 3D space. 
-* Scaling and translating the house from under a sprite mask on the horizon of the road to give the impression of approaching it from a distance. 
-* An obstacle spawner that uses a fixed vector fan and relative sprite scaling to give the impression that obstacles are placed on the road in 3D. 
-* A simple audio manager for music and sound effects.
-* General code for tying scenes together and triggering game state events. 
 
 ## Description
 * Pain is indicated by the red overlay.
@@ -55,3 +44,20 @@ Sound and Music: <a href="https://github.com/GOTLTL">John Tran</a>.
   </tr>
 </tbody>
 </table>
+
+## Credits
+Programmers: <a href="https://github.com/OmarAlFarajat">Omar Al-Farajat</a> and <a href="https://github.com/OmarAlFarajat">Lyonel Zamora</a>.
+
+Artists: <a href="https://github.com/Tjsreel">Tj'sReel</a> and <a href="https://github.com/GOTLTL">John Tran</a>.
+
+Animator: <a href="https://github.com/Tjsreel">Tj'sReel</a>.
+
+Sound and Music: <a href="https://github.com/GOTLTL">John Tran</a>.
+
+### Contributions 
+<a href="https://github.com/OmarAlFarajat">Omar Al-Farajat</a>
+* A "treadmill" effect to make the road and environment move under the player sprite to give the impression of moving forward in 3D space. 
+* Scaling and translating the house from under a sprite mask on the horizon of the road to give the impression of approaching it from a distance. 
+* An obstacle spawner that uses a fixed vector fan and relative sprite scaling to give the impression that obstacles are placed on the road in 3D. 
+* A simple audio manager for music and sound effects.
+* General code for tying scenes together and triggering game state events. 
