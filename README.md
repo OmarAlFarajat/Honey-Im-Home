@@ -2,6 +2,12 @@
 
 <img src="https://omaralfarajat.github.io/images/honey-home/drunk.png"  height = "270" width="480" /> <img src="https://omaralfarajat.github.io/images/honey-home/inpain.png" height = "270" width="480" /> <img src="https://omaralfarajat.github.io/images/honey-home/failed.png" height = "270" width="480" />
 
+**Download and Play (Windows, Linux, Mac):** <a href="https://gotl.itch.io/honey-im-home">gotl.itch.io/honey-im-home</a>  
+
+**Play in Browser:** <a href="https://simmer.io/@OhmZ/honey-i-m-home">simmer.io/@OhmZ/honey-i-m-home</a>
+
+**Ranked Top 5:** <a href="https://itch.io/jam/coco-jam/results ">itch.io/jam/coco-jam/results</a>
+
 ## Introduction
 Developed by our team "GoreNest" and submitted for the 48-hour <a href="https://itch.io/jam/coco-jam/entries">CoCo Jam</a> held by Concordia Game Dev and ETS Conjure. The theme of the game jam was "No Pain, No Gain". 
 
