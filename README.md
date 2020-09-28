@@ -48,7 +48,7 @@ Developed by our team "GoreNest" and submitted for the 48-hour <a href="https://
 </table>
 
 ## Credits
-Programmers: <a href="https://github.com/OmarAlFarajat">Omar Al-Farajat</a> and <a href="https://github.com/OmarAlFarajat">Lyonel Zamora</a>.
+Programmers: <a href="https://github.com/OmarAlFarajat">Omar Al-Farajat</a> and <a href="https://github.com/lyonelz96">Lyonel Zamora</a>.
 
 Artists: <a href="https://github.com/Tjsreel">Tj'sReel</a> and <a href="https://github.com/GOTLTL">John Tran</a>.
 
@@ -63,3 +63,9 @@ Sound and Music: <a href="https://github.com/GOTLTL">John Tran</a>.
 * An obstacle spawner that uses a fixed vector fan and relative sprite scaling to give the impression that obstacles are placed on the road in 3D. 
 * A simple audio manager for music and sound effects.
 * General code for tying scenes together and triggering game state events. 
+
+[Lyonel Zamora](https://github.com/lyonelz96)
+ * Drunk movement; The character gets more difficult to control the drunker he is, and easier to control the more in pain he is.
+ * Implemented the Drunk VFX using Unity's Post-Processing. They get more intense the drunker the character is.
+ * Worked on some basic scenes like the Menu and the Intertitles scenes.
+ * Implemented the Pain overlay that appears as the character gets hit with objects on the street.
