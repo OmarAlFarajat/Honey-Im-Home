@@ -22,7 +22,7 @@ public class HouseController : MonoBehaviour
 
     private const float Y_TARGET = -1.78f;
     private float HALFWAY;
-    private bool isHalfway = false; 
+    private bool isHalfway = false;
     private GameObject _halfwayText;
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class HouseController : MonoBehaviour
     {
         SCALE_SEG = transform.localScale.x / HOUSE_TIME / DRAW_UPDATE;
         transform.localScale = new Vector2(0.0f, 0.0f);
-        transform.position = new Vector2(0, Y_TARGET - DIST_SEG*HOUSE_TIME);
+        transform.position = new Vector2(0, Y_TARGET - DIST_SEG * HOUSE_TIME);
         _dist_accrued = transform.position.y;
         HALFWAY = (transform.position.y - Y_TARGET) / 1.75f + Y_TARGET;
         Debug.Log("HALFWAY: " + HALFWAY);
@@ -56,7 +56,7 @@ public class HouseController : MonoBehaviour
             transform.position = new Vector2(0f, _dist_accrued);
             transform.localScale = new Vector2(Mathf.Clamp(_scale_accrued, 0f, 1.01f), Mathf.Clamp(_scale_accrued, 0f, 1.01f));
 
-            if(_dist_accrued >= HALFWAY && !isHalfway)
+            if (_dist_accrued >= HALFWAY && !isHalfway)
             {
                 StartCoroutine(DisplayHalfway());
             }
@@ -73,7 +73,7 @@ public class HouseController : MonoBehaviour
     {
         isHalfway = true;
         _halfwayText.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(10);
         _halfwayText.SetActive(false);
     }
 
