@@ -10,13 +10,12 @@ public class RelativeScale : MonoBehaviour
     [Range(0.01f, 1.0f)]
     [SerializeField] private float _relativeScale = 0.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         origin = GameObject.Find("start0");
     }
 
-    // Update is called once per frame
+    // Objects will scale as they move down on the screen to give the appearance that they are getting closer as the player moves forward
     void Update()
     {
         float scaleFactor = _relativeScale*Mathf.Abs(transform.position.y -  origin.transform.position.y) / ((origin.transform.position.y + Camera.main.orthographicSize));

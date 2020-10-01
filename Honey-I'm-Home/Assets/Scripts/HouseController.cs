@@ -25,9 +25,12 @@ public class HouseController : MonoBehaviour
     private bool isHalfway = false;
     private GameObject _halfwayText;
 
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         SCALE_SEG = transform.localScale.x / HOUSE_TIME / DRAW_UPDATE;
         transform.localScale = new Vector2(0.0f, 0.0f);
         transform.position = new Vector2(0, Y_TARGET - DIST_SEG * HOUSE_TIME);
@@ -40,12 +43,13 @@ public class HouseController : MonoBehaviour
         _halfwayText.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         scaleHouseOverTime();
     }
 
+    // Scales and translates the house over time only while the player is moving forward, to give the impression it is being approached
+    // Once the house is at a certain position (Y_TARGET), it will trigger a game win event
     void scaleHouseOverTime()
     {
         if (Input.GetAxisRaw("Vertical") > 0 && Time.timeSinceLevelLoad > nextActionTime)
@@ -63,16 +67,19 @@ public class HouseController : MonoBehaviour
 
             if (_dist_accrued >= Y_TARGET)
             {
-                FindObjectOfType<AudioManager>().StopCurrent();
+                audioManager.StopCurrent();
+                audioManager.Stop("walk");
                 SceneManager.LoadScene("Succeed");
             }
         }
     }
 
+    // Displays a message to the player when they are roughly halfway to the house
     IEnumerator DisplayHalfway()
     {
         isHalfway = true;
         _halfwayText.SetActive(true);
+        audioManager.Play("Halfway");
         yield return new WaitForSeconds(10);
         _halfwayText.SetActive(false);
     }

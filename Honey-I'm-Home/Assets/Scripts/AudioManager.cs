@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    public string sceneName;
+    private string sceneName;
 
-    // Start is called before the first frame update
     void Awake()
     {
         foreach (Sound s in sounds)

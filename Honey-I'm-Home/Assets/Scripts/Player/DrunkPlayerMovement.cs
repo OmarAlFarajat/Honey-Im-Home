@@ -28,8 +28,8 @@ public class DrunkPlayerMovement : MonoBehaviour
     private float _drunkForce = 0;
     private float _guidingForce = 0;
 
-    public float nextActionTime = 0.0f;
-    private const float PERIOD = 1f;
+    private float nextActionTime = 0.0f;
+    private const float period = 4.258f;    // Exact length of walking sound clip
 
     private AudioManager audioManager;
 
@@ -107,12 +107,12 @@ public class DrunkPlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("obstacle"))
         {
             Destroy(other.gameObject);
-            FindObjectOfType<AudioManager>().Play("hurt");
+            audioManager.Play("hurt");
         }
         if (other.gameObject.CompareTag("beer"))
         {
             Destroy(other.gameObject);
-            FindObjectOfType<AudioManager>().Play("drink");
+            audioManager.Play("drink");
         }
     }
 
@@ -126,20 +126,19 @@ public class DrunkPlayerMovement : MonoBehaviour
         }
     }
 
+    // Walking sound is only played when movement keys are pressed and in periods of ~4 seconds (audio clip length)
     private void playWalkingSound()
     {
         if (Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
         {
-
             if (Time.timeSinceLevelLoad > nextActionTime)
             {
-                nextActionTime += PERIOD;
+                nextActionTime = Time.timeSinceLevelLoad + period;
                 audioManager.Play("walk");
             }
         }
         else
             audioManager.Stop("walk");
-
     }
 
 

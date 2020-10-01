@@ -121,3 +121,10 @@ MonoBehaviour:
     loop: 0
     bypassEffects: 0
     source: {fileID: 0}
+  - name: Halfway
+    clip: {fileID: 8300000, guid: d45a4bfd794ff624ca956cc52023425b, type: 3}
+    volume: 0.695
+    pitch: 1
+    loop: 0
+    bypassEffects: 0
+    source: {fileID: 0}

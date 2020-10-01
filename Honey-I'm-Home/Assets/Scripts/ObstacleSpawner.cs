@@ -30,6 +30,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
+    // On every update, objects are spawned at random intervals of time, but the time counter only counts while the player is moving forward
     void Update()
     {
         if (Input.GetAxisRaw("Vertical") > 0 && Time.timeSinceLevelLoad > nextActionTime)
@@ -40,6 +41,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     }
 
+    // Spawns a random number (1 to int max_objects) of obstacles in one of 9 positions
     void SpawnRandom()
     {
         int numObjects = Random.Range(1, max_objects);
@@ -51,6 +53,7 @@ public class ObstacleSpawner : MonoBehaviour
 
             ObstacleMove obs = Instantiate(obstacles[obstacleIndex].GetComponent<ObstacleMove>(), GameObject.Find("start" + position).transform.position, Quaternion.identity);
             obs.transform.localScale = new Vector2();
+            // The obstacle is given one of 9 vector paths moving along the road corresponding to the vanishing point
             obs.moveDir = GameObject.Find("end" + position).transform.position - GameObject.Find("start" + position).transform.position;
             obs.moveDir.Normalize();
         }

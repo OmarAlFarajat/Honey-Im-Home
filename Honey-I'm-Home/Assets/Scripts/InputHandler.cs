@@ -10,40 +10,38 @@ public class InputHandler : MonoBehaviour
     private GameObject _ControlsButton;
     private GameObject _BackButton;
     private GameObject _ControlsPanel;
-
+    private GameObject _GameMenuCanvas;
     private AudioManager audioManager;
+    private bool gamePaused = false; 
 
     // Start is called before the first frame update
     void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        //int inputHandler = FindObjectsOfType<InputHandler>().Length;
-        //if (inputHandler != 1)
-        //    Destroy(gameObject);
-        //else
-        //    DontDestroyOnLoad(gameObject);
-
-       _StartButton = GameObject.Find("StartButton");
+        _StartButton = GameObject.Find("StartButton");
         _ControlsButton = GameObject.Find("ControlsButton");
         _BackButton = GameObject.Find("BackButton");
         _ControlsPanel = GameObject.Find("ControlsPanel");
+        _GameMenuCanvas = GameObject.Find("GameMenuCanvas");
+
+        if (_GameMenuCanvas)
+            _GameMenuCanvas.SetActive(false);
 
         if(_ControlsPanel)
-        _ControlsPanel.SetActive(false);
+            _ControlsPanel.SetActive(false);
         
         if(_BackButton)
-        _BackButton.SetActive(false);
-
+            _BackButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         Skip();
-        // Disabled ability to press escape to terminate game with Escape key. 
-        //AnytimeQuit();
+        PauseMenuCheck();
     }
 
+    // Allows the player to skip the intertitle before the game starts
     private void Skip()
     {
         if (Input.GetKeyDown("space"))
@@ -57,20 +55,37 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    // Not used for WebGL build
-    private void AnytimeQuit()
+    // Pressing Escape while in the game brings up a pause menu
+    private void PauseMenuCheck()
     {
-        if (Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
+        // If pause menu is already open, then continue the game
+        if (Input.GetKeyDown("escape") && SceneManager.GetActiveScene().name.Equals("Main") && gamePaused)
+            ContinueGame();
+        // If Escape is pressed and the pause menu isn't active, then pause game and activate pause menu
+        else if (Input.GetKeyDown("escape") && SceneManager.GetActiveScene().name.Equals("Main") && !_GameMenuCanvas.activeSelf) {
+            _GameMenuCanvas.SetActive(true);
+            Time.timeScale = 0f;
+            AudioListener.pause = true;
+            gamePaused = true;
         }
     }
 
+    // Continues the game after closing the pause menu
+   public void ContinueGame()
+    {
+        gamePaused = false;
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+        _GameMenuCanvas.SetActive(false);
+    }
+
+    // Used in the main menu to start a new game
     public void StartGame()
     {
         SceneManager.LoadScene("Intertitle");
     }
 
+    // Used in the main menu to show the controls
     public void ShowControls()
     {
         _StartButton.SetActive(false);
@@ -80,6 +95,8 @@ public class InputHandler : MonoBehaviour
 
 
     }
+
+    // Used in the main menu to close the controls panel
     public void BackToMenu()
     {
         _StartButton.SetActive(true);
@@ -88,9 +105,13 @@ public class InputHandler : MonoBehaviour
         _ControlsPanel.SetActive(false);
     }
 
+    // Used in the pause menu as well as the success and fail scenes to go back to main menu
     public void MainMenuButton()
     {
+        Time.timeScale = 1.0f;
+        AudioListener.pause = false;
         audioManager.StopCurrent();
+        audioManager.Stop("walk");
         SceneManager.LoadScene("Menu");
     }
 }
