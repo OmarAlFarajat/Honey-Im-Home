@@ -58,29 +58,29 @@ MonoBehaviour:
     loop: 0
     bypassEffects: 0
     source: {fileID: 0}
-  - name: intro
+  - name: Menu
     clip: {fileID: 8300000, guid: cf3f260d643c77548a148a41c4c3855b, type: 3}
     volume: 0.3
     pitch: 1
     loop: 1
     bypassEffects: 0
     source: {fileID: 0}
-  - name: succeed
+  - name: Succeed
     clip: {fileID: 8300000, guid: 4537e90bf38fe404d83c9eb28f6dbd24, type: 3}
     volume: 0.3
     pitch: 1
     loop: 1
     bypassEffects: 0
     source: {fileID: 0}
-  - name: fail
+  - name: Fail
     clip: {fileID: 8300000, guid: 44be6117572c9244a948ead6ca655cc6, type: 3}
     volume: 0.3
     pitch: 1
     loop: 1
     bypassEffects: 0
     source: {fileID: 0}
-  - name: bgm
-    clip: {fileID: 8300000, guid: 884a440f8f47e00438d9327ed6684ab1, type: 3}
+  - name: Main0
+    clip: {fileID: 8300000, guid: 231c0ac7fb78ef94d9eb44fe2457a546, type: 3}
     volume: 0.25
     pitch: 1
     loop: 1
@@ -89,6 +89,41 @@ MonoBehaviour:
   - name: drink
     clip: {fileID: 8300000, guid: 0ef5e456819fd9a40b8c136121597b85, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    bypassEffects: 0
+    source: {fileID: 0}
+  - name: Main1
+    clip: {fileID: 8300000, guid: 1f985932f5616ba4d97ebbfed60a9cf9, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    bypassEffects: 0
+    source: {fileID: 0}
+  - name: Main2
+    clip: {fileID: 8300000, guid: 884a440f8f47e00438d9327ed6684ab1, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    bypassEffects: 0
+    source: {fileID: 0}
+  - name: Main3
+    clip: {fileID: 8300000, guid: 3ad66ebdb803f9c469cdac2914c97cc1, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    bypassEffects: 0
+    source: {fileID: 0}
+  - name: Main4
+    clip: {fileID: 8300000, guid: 4745e57ab69e9004dbdcb2468039f2dd, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    bypassEffects: 0
+    source: {fileID: 0}
+  - name: Halfway
+    clip: {fileID: 8300000, guid: d45a4bfd794ff624ca956cc52023425b, type: 3}
+    volume: 0.695
     pitch: 1
     loop: 0
     bypassEffects: 0

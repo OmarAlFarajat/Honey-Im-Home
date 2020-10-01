@@ -28,9 +28,15 @@ public class DrunkPlayerMovement : MonoBehaviour
     private float _drunkForce = 0;
     private float _guidingForce = 0;
 
-    public float nextActionTime = 0.0f;
-    private const float PERIOD = 1f;
+    private float nextActionTime = 0.0f;
+    private const float period = 4.258f;    // Exact length of walking sound clip
 
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void Start()
     {
         // -1 -> Left, 1 -> Right
@@ -101,12 +107,12 @@ public class DrunkPlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("obstacle"))
         {
             Destroy(other.gameObject);
-            FindObjectOfType<AudioManager>().Play("hurt");
+            audioManager.Play("hurt");
         }
         if (other.gameObject.CompareTag("beer"))
         {
             Destroy(other.gameObject);
-            FindObjectOfType<AudioManager>().Play("drink");
+            audioManager.Play("drink");
         }
     }
 
@@ -114,30 +120,25 @@ public class DrunkPlayerMovement : MonoBehaviour
     {
         if (PainMeter >= 100f || DrunkMeter >= 100f)
         {
-            GameObject.Find("House").GetComponent<HouseController>().transform.position = new Vector2(0, -6.63f);
-            GameObject.Find("House").GetComponent<HouseController>().transform.localScale = new Vector2(0.15f, 0.15f);
-            GameObject.Find("House").GetComponent<HouseController>()._dist_accrued = - 6.63f;
-            GameObject.Find("House").GetComponent<HouseController>()._scale_accrued = 0.15f;
-            GameObject.Find("House").GetComponent<HouseController>().nextActionTime = 0.0f;
-            FindObjectOfType<AudioManager>().Stop("bgm");
+            audioManager.StopCurrent();
+            audioManager.Stop("walk");
             SceneManager.LoadScene("Fail");
         }
     }
 
+    // Walking sound is only played when movement keys are pressed and in periods of ~4 seconds (audio clip length)
     private void playWalkingSound()
     {
         if (Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
         {
-
             if (Time.timeSinceLevelLoad > nextActionTime)
             {
-                nextActionTime += PERIOD;
-                FindObjectOfType<AudioManager>().Play("walk");
+                nextActionTime = Time.timeSinceLevelLoad + period;
+                audioManager.Play("walk");
             }
         }
         else
-            FindObjectOfType<AudioManager>().Stop("walk");
-
+            audioManager.Stop("walk");
     }
 
 

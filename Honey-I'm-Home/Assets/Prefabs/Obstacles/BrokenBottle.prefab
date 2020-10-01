@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8630929345324150535}
   - component: {fileID: -1210539382191734135}
   - component: {fileID: 938432312163529978}
-  - component: {fileID: 2259101245039674039}
+  - component: {fileID: 3907351062672424683}
   m_Layer: 0
   m_Name: BrokenBottle
   m_TagString: obstacle
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9047280980924093496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: {x: 0, y: 0}
---- !u!61 &2259101245039674039
+--- !u!61 &3907351062672424683
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,10 +139,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03191012}
+  m_Offset: {x: -0.19112778, y: 3.9617767}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 8, y: 8}
     newSize: {x: 0.32, y: 0.28}
     adaptiveTilingThreshold: 0.5
@@ -150,5 +150,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 2.9579315}
+  m_Size: {x: 6.7003307, y: 1.9603682}
   m_EdgeRadius: 0
